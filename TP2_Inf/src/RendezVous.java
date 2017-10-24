@@ -66,17 +66,16 @@ public class RendezVous {
     public void setInfirmier(Infirmier infirmier) {
         this.infirmier = infirmier;
     }
-    
+
     // **********************MÉTHODES******************************************
-    
     // Permet de retourner les informations complète sur le docteur, patient et
     // l'infirmier
     public String toString() {
 
         // On fait appel au toString du patient,docteur et de l'infirmier 
         // qui étaient définis auparavant
-        return (patient.toString() + " " + docteur.toString() + " " +
-        infirmier.toString());
+        return (patient.toString() + " " + docteur.toString() + " "
+                + infirmier.toString());
 
     }
 
@@ -93,7 +92,7 @@ public class RendezVous {
         // Comparer les attributs des objets
         if (rendezVous.getDocteur().equals(docteur)
                 && rendezVous.getInfirmier().equals(infirmier)
-                        && rendezVous.getDocteur().equals(patient)) {
+                && rendezVous.getDocteur().equals(patient)) {
 
             return true;
 
@@ -106,4 +105,3 @@ public class RendezVous {
 
     }
 }
-
