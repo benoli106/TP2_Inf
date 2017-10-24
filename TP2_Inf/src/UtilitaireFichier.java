@@ -15,7 +15,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 /**
  * Classe utilitaire pour la récupération et la sauvegarde de la bd
  * dans le travail sur le calendrier de clinique médicale. (voir énoncé tp2 A17 INF111).
- * @@@@@@@@@@@@@@@@@@@@@@@@
+ * @@@@@@@@@@@@@@@@@@@@@@@@2
  * @author Pierre Bélisle
  * @version (Copyright 2017)
  * 
