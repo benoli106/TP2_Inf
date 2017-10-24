@@ -49,7 +49,7 @@ public class Infirmier {
     public Infirmier(Infirmier infirmier) {
 
         // Copier les attributs de l'objet infirmier passé en paramètre
-        this(Identification.clone, Identification.prenom);
+        this(Identification.clone(), infirmier.disponibilite);
 
     }
 
