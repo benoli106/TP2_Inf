@@ -98,7 +98,7 @@ public class Identification {
             
         }
         
-        // Si l'adresse et les attributs ne sont pas pareils.
+        // Si l'adresse ou que les attributs ne sont pas pareils.
         else {
             
            return false;
