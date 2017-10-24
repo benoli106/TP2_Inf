@@ -30,8 +30,8 @@ public class Identification {
 
     }
 
-    // Constructeur par copie d'attributs, permet d'instancier un objet
-    // à partir des attributs passés en paramètre
+    // Constructeur par copie d'attributs, permet de copier les attributs
+    // passés en paramètre
     public Identification(String nom, String Prenom) {
 
         // Le nom de l'objet va être identique au nom passé en paramètre
@@ -42,7 +42,8 @@ public class Identification {
 
     }
 
-    // Constructeur par défaut, lorsqu'il n'a pas de paramètres
+    // Constructeur par copie d'objet, permet de copier les attributs de l'objet
+    // passé en paramètre.
     public Identification (Identification Identification) {
 
         // Copier les attributs de l'objet d'identification passé en paramètre
