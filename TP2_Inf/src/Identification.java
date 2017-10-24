@@ -44,7 +44,7 @@ public class Identification {
 
     // Constructeur par copie d'objet, permet de copier les attributs de l'objet
     // passé en paramètre.
-    public Identification (Identification Identification) {
+    public Identification(Identification Identification) {
 
         // Copier les attributs de l'objet d'identification passé en paramètre
         this(Identification.nom, Identification.prenom);
@@ -73,4 +73,5 @@ public class Identification {
         this.prenom = prenom;
     }
 
+    
 }
