@@ -66,10 +66,8 @@ public class Docteur {
     // Permet de modifier l'identification du Docteur
     public void setIdentification(Identification identification) {
 
-        // On change les valeurs du nom et prenom du Docteur dans son objet 
-        // identification
-        this.identification.setNom(identification.getNom());
-        this.identification.setPrenom(identification.getPrenom());
+        // On change l'attribut identification par lui recu en paramètre
+        this.identification = identification;
     }
 
     // Permet de modifier le prénom au prénom passé en paramètre
@@ -85,7 +83,7 @@ public class Docteur {
 
         // On fait appel au toString de identification et on ajoute le n. de
         // departement du Docteur
-        return (identification.toString() + numDepartement);
+        return (identification.toString() + " " + numDepartement);
 
     }
 

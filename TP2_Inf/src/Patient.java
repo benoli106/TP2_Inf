@@ -66,14 +66,12 @@ public class Patient {
 
     // **********************MUTATEURS******************************************
     // Permet de modifier l'identification du Patient
-    public void setIdentification(Identification identification) {
+     public void setIdentification(Identification identification) {
 
-        // On change les valeurs du nom et prenom du Patient dans son objet 
-        // identification
-        this.identification.setNom(identification.getNom());
-        this.identification.setPrenom(identification.getPrenom());
+        // On change l'attribut identification par lui recu en paramètre
+        this.identification = identification;
     }
-
+     
     // Permet de modifier le NAS avec lui passé en paramètre
     public void setNAS(int NAS) {
 
@@ -88,7 +86,7 @@ public class Patient {
 
         // On fait appel au toString de identification et on ajoute le n.
         // d'assurance social du Patient
-        return (identification.toString() + NAS);
+        return (identification.toString() + " " + NAS);
 
     }
 
