@@ -107,7 +107,7 @@ public class Identification {
         
     }
     
-    // Permet d'obtenir une instance de la classe avec une copie des attributs
+    // Permet d'obtenir une instance de la classe avec une copie des attributs.
     // de l'objet passé en paramètre    
     public Identification clone() {
         
