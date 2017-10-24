@@ -5,8 +5,8 @@
  * être utilisé dans les autres classes afin de ne pas les répéter dans les
  * autres classes
  *
- * @author Long Tran
- * @since (copyright) LTran - A2017
+ * @author Long Tran & Benjamin Fontaine
+ * @since (copyright) LTran BFont - A2017
  * @version (copyright 2017)
  */
 public class Identification {
