@@ -5,8 +5,8 @@
  * être utilisé dans les autres classes afin de ne pas les répéter dans les
  * autres classes
  *
- * @author Long Tran
- * @since (copyright) LTran - A2017
+ * @author Long Tran & Benjamin Fontaine
+ * @since (copyright) LTran BFont - A2017
  * @version (copyright 2017)
  */
 public class Identification {
@@ -22,10 +22,10 @@ public class Identification {
     // Constructeur par défaut, lorsqu'il n'a pas de paramètres
     public Identification() {
 
-        //Le nom est vide par défaut
+        //L e nom est vide par défaut
         setNom("");
 
-        //Le prénom est vide par défaut
+        // Le prénom est vide par défaut
         setPrenom("");
 
     }
@@ -72,6 +72,55 @@ public class Identification {
     public void setPrenom(String prenom) {
         this.prenom = prenom;
     }
+    
+    // Retourne la concaténation du nom et du prénom.
+    public String toString() {
+        
+        return (nom+" "+prenom);
+          
+    }
+    
+    // Permet de comparer 2 objets du même type
+    public boolean equals(Identification identification) {
+        
+        // Comparer les adressses de référence
+        if (this == Identification) {
+            
+            return true;
+            
+        }
+        
+        // Comparer les attributs des objets
+        if(nom.equals(identification.getNom()) 
+                && prenom.equals(identification.getPrenom())) {
+            
+            return true;
+            
+        }
+        
+        // Si l'adresse ou que les attributs ne sont pas pareils.
+        else {
+            
+           return false;
+            
+        }
+        
+    }
+    
+    // Permet d'obtenir une instance de la classe avec une copie des attributs
+    // de l'objet passé en paramètre    
+    public Identification clone(Identification identification) {
+        
+        // On créer un nouvel objet clone et on assigne les valeurs
+        Identification leClone = new Identification();
+        leClone.nom = identification.nom;
+        leClone.prenom = identification.prenom;
+        
+        // On retourne le clone de l'objet
+        return leClone;
+    }
+    
+    
 
     
 }
