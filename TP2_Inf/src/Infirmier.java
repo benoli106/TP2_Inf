@@ -22,33 +22,51 @@ public class Infirmier {
     // Constructeur par défaut, lorsqu'il n'a pas de paramètres
     public Infirmier() {
 
-        // Le nom est vide par défaut
-        setNom("");
-
-        // Le prénom est vide par défaut
-        setPrenom("");
+        // Aucune identification
+        identification = null;
+        
+        // Disponibilite est false par défaut
+        setDisponibilite(false);
 
     }
 
     // Constructeur par copie d'attributs, permet de copier les attributs
     // passés en paramètre
-    public Identification(String nom, String Prenom) {
+    public Infirmier(Identification identification, boolean disponibilite) {
 
-        // Le nom de l'objet va être identique au nom passé en paramètre
-        setNom(nom);
+        // L'attribut identification va être copié de l'identification passé
+        // en paramètre
+        setIdentification(identification);
 
-        // Le prénom de l'objet va être identique au prénom passé en paramètre
-        setPrenom(prenom);
+        // L'attribut disponibilité va être copié de la disponibilité passé
+        // en paramètre
+        setDisponibilite(disponibilite);
 
     }
 
     // Constructeur par copie d'objet, permet de copier les attributs de l'objet
     // passé en paramètre.
-    public Identification (Identification Identification) {
+    public Infirmier(Infirmier infirmier) {
 
-        // Copier les attributs de l'objet d'identification passé en paramètre
-        this(Identification.nom, Identification.prenom);
+        // Copier les attributs de l'objet infirmier passé en paramètre
+        this(Identification.clone, Identification.prenom);
 
+    }
+
+    public Identification getIdentification() {
+        return identification;
+    }
+
+    public void setIdentification(Identification identification) {
+        this.identification = identification;
+    }
+
+    public boolean getDisponibilite() {
+        return disponibilite;
+    }
+
+    public void setDisponibilite(boolean disponibilite) {
+        this.disponibilite = disponibilite;
     }
     
     
