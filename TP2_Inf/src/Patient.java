@@ -23,33 +23,33 @@ public class Patient {
 
     // *********************CONSTRUCTEURS***************************************
     // Constructeur par défaut, lorsqu'il n'a pas de paramètres
-    public Docteur() {
+    public Patient() {
 
         // On initialise une idenfication avec des valeurs par défaut et un
-        // numéro de département à 0 
-        this.identification = null;
-        this.numDepartement = 0;
+        // NAS a 0
+        this.identification = null; 
+        this.NAS = 0;
     }
 
     // Constructeur par copie d'attributs, permet de copier les attributs
     // passés en paramètre
-    public Docteur(Identification identification, int numDepartement) {
+    public Patient(Identification identification, int NAS) {
 
         // On copie les attributs de l'objet identification recu dans l'objet 
-        // Identification du docteur
+        // Identification du Patient
         this.identification = identification;
-        this.numDepartement = numDepartement;
+        this.NAS = NAS;
 
     }
 
     // Constructeur par copie d'objet, permet de copier les attributs de l'objet
     // passé en paramètre.
-    public Docteur(Docteur docteur) {
+    public Patient(Patient Patient) {
 
-        // Copier les attributs de l'objet docteur passé en paramètre
-        this.identification.setNom(docteur.identification.getNom());
-        this.identification.setPrenom(docteur.identification.getPrenom());
-        this.numDepartement = docteur.numDepartement;
+        // Copier les attributs de l'objet Patient passé en paramètre
+        this.identification.setNom(Patient.identification.getNom());
+        this.identification.setPrenom(Patient.identification.getPrenom());
+        this.NAS = Patient.NAS;
 
     }
 
@@ -59,52 +59,53 @@ public class Patient {
         return this.identification;
     }
 
-    // Permet de retourner numéro de département
-    public int getPrenom() {
-        return this.numDepartement;
+    // Permet de retourner le NAS
+    public int getNAS() {
+        return this.NAS;
     }
 
     // **********************MUTATEURS******************************************
-    // Permet de modifier l'identification du docteur
+    // Permet de modifier l'identification du Patient
     public void setIdentification(Identification identification) {
 
-        // On change les valeurs du nom et prenom du docteur dans son objet 
+        // On change les valeurs du nom et prenom du Patient dans son objet 
         // identification
         this.identification.setNom(identification.getNom());
         this.identification.setPrenom(identification.getPrenom());
     }
 
-    // Permet de modifier le prénom au prénom passé en paramètre
-    public void setNumDepartement(int num) {
+    // Permet de modifier le NAS avec lui passé en paramètre
+    public void setNAS(int NAS) {
 
-        // On change le numero de departement du docteur par celui passer 
+        // On change le NAS du Patient par celui passer 
         // en paramètre
-        this.numDepartement = num;
+        this.NAS = NAS;
     }
 
-    // Retourne la concaténation du nom et du prénom et du numéro de departement.
+    // Retourne la concaténation du nom et du prénom et du numéro d'assurance
+    // social.
     public String toString() {
 
-        // On fait appel au toString de identification et on ajoute le n. de
-        // departement du docteur
-        return (identification.toString() + numDepartement);
+        // On fait appel au toString de identification et on ajoute le n.
+        // d'assurance social du Patient
+        return (identification.toString() + NAS);
 
     }
 
     // Permet de comparer 2 objets du même type
-    public boolean equals(Docteur docteur) {
+    public boolean equals(Patient patient) {
 
         // Comparer les adressses de référence
-        if (this == docteur) {
+        if (this == patient) {
 
             return true;
 
         }
 
         // Comparer les attributs des objets
-        if (identification.getNom().equals(docteur.identification.getNom())
-                && identification.getPrenom().equals(docteur.identification
-                        .getPrenom()) && numDepartement == docteur.numDepartement) {
+        if (identification.getNom().equals(patient.identification.getNom())
+                && identification.getPrenom().equals(patient.identification
+                        .getPrenom()) && NAS == patient.NAS) {
 
             return true;
 
@@ -119,14 +120,9 @@ public class Patient {
     
     // Permet d'obtenir une instance de la classe avec une copie des attributs
     // de l'objet passé en paramètre    
-    public Docteur clone(Docteur docteur) {
+    public Patient clone() {
         
-        // On créer un nouvel objet clone et on assigne les valeurs
-        Docteur leClone = new Docteur();
-        leClone.identification.setNom(docteur.getIdentification().getNom());
-        leClone.identification.setPrenom(docteur.getIdentification().getPrenom());
- 
         // On retourne le clone de l'objet
-        return leClone;
+        return new Patient(this);
     }
 }
