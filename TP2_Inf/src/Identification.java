@@ -109,15 +109,10 @@ public class Identification {
     
     // Permet d'obtenir une instance de la classe avec une copie des attributs
     // de l'objet passé en paramètre    
-    public Identification clone(Identification identification) {
-        
-        // On créer un nouvel objet clone et on assigne les valeurs
-        Identification leClone = new Identification();
-        leClone.nom = identification.nom;
-        leClone.prenom = identification.prenom;
+    public Identification clone() {
         
         // On retourne le clone de l'objet
-        return leClone;
+        return new Identification(this);
     }
     
     
