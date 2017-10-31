@@ -4,14 +4,13 @@ import java.util.Date;
 
 /**
  * Cette classe regroupe tous les attributs et les méthodes pour la classe
- * PlageHoraire, les attributs sont son identification et son numéro d'assurance social.
- * Cette classe fait la description d'un plagehoraire
+ * PlageHoraire, les attributs sont son identification et son numéro d'assurance
+ * social. Cette classe fait la description d'un plagehoraire
  *
  * @author Long Tran & Benjamin Fontaine
  * @since (copyright) LTran & BFon - A2017
  * @version (copyright 2017)
  */
-
 /**
  *
  * @author AP02990 & AP09770
@@ -26,12 +25,11 @@ public class PlageHoraire {
     private ArrayList<RendezVous> listeRendezVous;
 
     // *********************CONSTRUCTEURS***************************************
-    
     // Constructeur par copie d'attributs, on instancie la liste mais elle est vide
     // et on assigne la dateHeure recue à la dateHeur de la plage créer
     public PlageHoraire(Date dateHeure) {
-   
-        this.dateHeure = dateHeure; 
+
+        this.dateHeure = dateHeure;
         this.listeRendezVous = new ArrayList<RendezVous>();
 
     }
@@ -50,51 +48,34 @@ public class PlageHoraire {
     // **********************MUTATEURS******************************************
     // Permet de modifier la date et l'heure de la PlageHoraire
     public void setDate(Date dateHeure) {
-        
+
         // On change la date et l'heure par celle recu en paramètre
         this.dateHeure = dateHeure;
     }
 
     // Permet de modifier la liste des rendez-vous
-   //addRdv public void setListeRendezVous(List  NAS) {      **************************************************************** <---------------
-        
-        // On change le NAS du PlageHoraire par celui passer 
-        // en paramètre
-        this.NAS = NAS;
+    public void addRendezVous(RendezVous rdv) {
+
+        // On ajoute un rendez vous à la liste de rendez-vous sur cette
+        //plage horaire
+        this.listeRendezVous.add(rdv);
     }
 
-    // Retourne la concaténation du nom et du prénom et du numéro d'assurance
-    // social.
+    // Retourne la date de la plage horaire et une description des rendez-vous
+    // inscrits.
     public String toString() {
 
-        // On fait appel au toString de identification et on ajoute le n.
-        // d'assurance social du PlageHoraire
-        return (identification.toString() + NAS);
+        // On initialise un String de retour avec la date et l'heure
+        String retour = "Date : " + this.dateHeure
+                + "\n" + "Liste des Rendez-vous : ";
 
-    }
-
-    // Permet de comparer 2 objets du même type
-    public boolean equals(PlageHoraire plagehoraire) {
-
-        // Comparer les adressses de référence
-        if (this == plagehoraire) {
-
-            return true;
-
+        // Pour chaque rendez vous dans la liste, on appel son toString()
+        // de facon à lister tous les rendez vous dans le string de retour
+        for (RendezVous rdv : this.listeRendezVous) {
+            retour += rdv.toString() + "\n";
         }
 
-        // Comparer les attributs des objets
-        if (identification.getNom().equals(plagehoraire.identification.getNom())
-                && identification.getPrenom().equals(plagehoraire.identification
-                        .getPrenom()) && NAS == plagehoraire.NAS) {
+        return (retour);
 
-            return true;
-
-        } // Si l'adresse ou que les attributs ne sont pas pareils.
-        else {
-
-            return false;
-
-        }
-    
     }
+}
