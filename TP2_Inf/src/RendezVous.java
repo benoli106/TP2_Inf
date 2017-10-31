@@ -1,6 +1,6 @@
 
 /**
- * Cette classe regroupe tous les attributs et les méthodes pour la classe de de
+ * Cette classe regroupe tous les attributs et les méthodes pour la classe de 
  * rendez-vous, les attributs sont le patient, le docteur consulté et
  * l'infirmier
  *
