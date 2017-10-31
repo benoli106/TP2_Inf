@@ -1,38 +1,38 @@
 /**
- * Classe qui implémente une liste doublement chaînée
- * avec une position courante.  En tout temps les opérations
- * se font par rapport à la position courante qui fait partie intégrante de la liste.
+ * Classe qui implï¿½mente une liste doublement chaï¿½nï¿½e
+ * avec une position courante.  En tout temps les opï¿½rations
+ * se font par rapport ï¿½ la position courante qui fait partie intï¿½grante de la liste.
  *
- * Les méthodes pour déplacer la position courante font partie de la classe.
+ * Les mï¿½thodes pour dï¿½placer la position courante font partie de la classe.
  *
- * Pour l'insertion, la position courante est toujours sur le noeud ajouté.
+ * Pour l'insertion, la position courante est toujours sur le noeud ajoutï¿½.
  *
  * Pour la suppression, la position courante est le noeud suivant celui qui vient
- * d'être supprimé (non implémentée).
+ * d'ï¿½tre supprimï¿½ (non implï¿½mentï¿½e).
  *
- * On ne lève aucune exception pour cet exemple.  Seul les exceptions systèmes
- * seront levées s'il y a un problème.
+ * On ne lï¿½ve aucune exception pour cet exemple.  Seul les exceptions systï¿½mes
+ * seront levï¿½es s'il y a un problï¿½me.
  *
- * @author  <a href="mailto:pierre.belisle@etsmtl.ca">Pierre Bélisle</a>
- * @version février 2014
+ * @author  <a href="mailto:pierre.belisle@etsmtl.ca">Pierre Bï¿½lisle</a>
+ * @version fï¿½vrier 2014
  */
 public class ListeDouble {
 
 	/*
-	 * STRATÉGIE : On garde une référence sur le premier et le dernier noeud
-	 * de la liste.  Une référence sur la position courante et le nombre d'éléments
-	 * est mis à jour après chaque insertion.
+	 * STRATï¿½GIE : On garde une rï¿½fï¿½rence sur le premier et le dernier noeud
+	 * de la liste.  Une rï¿½fï¿½rence sur la position courante et le nombre d'ï¿½lï¿½ments
+	 * est mis ï¿½ jour aprï¿½s chaque insertion.
 	 *
-	 * Le chaînage est double alors le noeud contient une référence sur
-	 * le noeud suivant et le noeud précédent
+	 * Le chaï¿½nage est double alors le noeud contient une rï¿½fï¿½rence sur
+	 * le noeud suivant et le noeud prï¿½cï¿½dent
 	 *
-	 * Les statégies pour chaque méthode sont décrites dans leur commentaire
-	 * de stratégie respectf.
+	 * Les statï¿½gies pour chaque mï¿½thode sont dï¿½crites dans leur commentaire
+	 * de stratï¿½gie respectf.
 	 */
 
 
 	 /*
-	  *Une liste est un ou pls noeuds liés ensemble dans les deux sens.
+	  *Une liste est un ou pls noeuds liï¿½s ensemble dans les deux sens.
 	  */
 	 private class Noeud{
 
@@ -55,20 +55,20 @@ public class ListeDouble {
 	 private Noeud debut;
 	 private Noeud fin;
 
-	 //Référence sur la position où sont effectué les opération.
+	 //Rï¿½fï¿½rence sur la position oï¿½ sont effectuï¿½ les opï¿½ration.
 	 private Noeud positionCourante;
 
-	 //Maintenu à jour après une insertion ou une suppresion.
+	 //Maintenu ï¿½ jour aprï¿½s une insertion ou une suppresion.
 	 private int nbElements;
 
 
 	 /**
-	  * Crée une liste vide.
+	  * Crï¿½e une liste vide.
 	  */
 	 public ListeDouble(){
 
 	    	/**
-	    	 * STRATÉGIE : On initialise explicitement les valeurs plutôt 
+	    	 * STRATï¿½GIE : On initialise explicitement les valeurs plutï¿½t 
 	    	 *  que d'utiliser l'initialisation automatique de l'environnement.
 	    	 */
 		         debut = null;
@@ -81,29 +81,29 @@ public class ListeDouble {
 	 /**
 	  * Retourne si la liste est vide.
 	  *
-	  * Antécédent : Aucun.
+	  * Antï¿½cï¿½dent : Aucun.
 	  *
-	  * Conséquent : Aucun.
+	  * Consï¿½quent : Aucun.
 	  *
 	  * @return Si true la liste est vide et false autrement
 	  */
 	 public boolean estVide(){
 
 		 /*
-		  * STRATÉGIE : On retourne simplement l'évaluation booléenne de la
-		  *  comparaison du nombre d'éléments avec 0.
+		  * STRATï¿½GIE : On retourne simplement l'ï¿½valuation boolï¿½enne de la
+		  *  comparaison du nombre d'ï¿½lï¿½ments avec 0.
 		  */
 	     return nbElements == 0;
 	 }
 
 
-	 //LES MÉTHODES DE DÉPLACEMENT
+	 //LES Mï¿½THODES DE Dï¿½PLACEMENT
 	 /**
 	  * Passe la position courante au suivant dans la liste.
 	  *
-	  * Antécédent : Aucun.
+	  * Antï¿½cï¿½dent : Aucun.
 	  *
-	  * Conséquent : La position est déplacée sur l'élément suivant s'il existe.
+	  * Consï¿½quent : La position est dï¿½placï¿½e sur l'ï¿½lï¿½ment suivant s'il existe.
 	  * Sinon position courante est sur le dernier de la liste.
  	  *
 	  *  @throws JavaNullPointerException
@@ -112,7 +112,7 @@ public class ListeDouble {
 
 
 		 /*
-		  * STRATÉGIE : Si c'est la fin, on ne déplace pas, sinon 
+		  * STRATï¿½GIE : Si c'est la fin, on ne dï¿½place pas, sinon 
 		  * on passe au suivant.
 		  */
 		 if(positionCourante.suivant != null){
@@ -125,32 +125,32 @@ public class ListeDouble {
 	 }
 
 	 /**
-	  * Met la position courante au début de la  liste.
+	  * Met la position courante au dï¿½but de la  liste.
 	  *
-	  * Conséquent : position == debut.
+	  * Consï¿½quent : position == debut.
 	  */
 	 public void setPosDebut() {
 
 
          /*
-          * STRATÉGIE : On déplace la position courante 
-          *  au noeud pointé par début.
+          * STRATï¿½GIE : On dï¿½place la position courante 
+          *  au noeud pointï¿½ par dï¿½but.
           */
 		 positionCourante = debut;
 
 	 }
 
 	 /**
-	  * Met la position courante à la fin de la liste.
+	  * Met la position courante ï¿½ la fin de la liste.
 	  *
-	  * Conséquent : position == fin.
+	  * Consï¿½quent : position == fin.
 	  *
 	  */
 	 public void setPosFin() {
 
 
          /*
-          * STRATÉGIE : On déplace la position courante au noeud pointé 
+          * STRATï¿½GIE : On dï¿½place la position courante au noeud pointï¿½ 
           * par le pointeur de fin.
           */
 		 positionCourante = fin;
@@ -159,11 +159,11 @@ public class ListeDouble {
 	 }
 
 	 /**
-	  * Passe la position courante au précédent dans la liste.
+	  * Passe la position courante au prï¿½cï¿½dent dans la liste.
 	  *
-	  * Antécédent : La liste ne doit pas être vide.
+	  * Antï¿½cï¿½dent : La liste ne doit pas ï¿½tre vide.
 	  *
-	  * Conséquent : La position courante est sur l'élément précédent s'il existe.
+	  * Consï¿½quent : La position courante est sur l'ï¿½lï¿½ment prï¿½cï¿½dent s'il existe.
 	  * Sinon position courante == debut.
 	  *
  	  *  @throws JavaNullPointerException
@@ -172,11 +172,11 @@ public class ListeDouble {
 
 
 		 /*
-		  *STRATÉGIE : On déplace la position sur son précédent sauf 
-		  *si elle est au début.
+		  *STRATï¿½GIE : On dï¿½place la position sur son prï¿½cï¿½dent sauf 
+		  *si elle est au dï¿½but.
 		  */
 
-		 // On ne déplace rien si on est au début.
+		 // On ne dï¿½place rien si on est au dï¿½but.
 		 if(positionCourante != debut) {
 
 		    positionCourante = positionCourante.precedent;
@@ -186,119 +186,119 @@ public class ListeDouble {
 	 }
 
 
-	 //LES MÉTHODES D'INSERTION
+	 //LES Mï¿½THODES D'INSERTION
 	 /**
-	  * Insère l'élément reçu en début de liste
+	  * Insï¿½re l'ï¿½lï¿½ment reï¿½u en dï¿½but de liste
 	  *
-	  * Antédécent : Aucun.
+	  * Antï¿½dï¿½cent : Aucun.
 	  *
-	  * Conséquent : nbElement = nbElement + 1 &  position == debut &
+	  * Consï¿½quent : nbElement = nbElement + 1 &  position == debut &
 	  *  this.getElement() == element.
 	  *
-      * @param element L'Élément à insérer au début  de la liste
+      * @param element L'ï¿½lï¿½ment ï¿½ insï¿½rer au dï¿½but  de la liste
 	  */
 	 public void insererDebut(Object element){
 
 		 /*
-		  * STRATÉGIE : On crée un noeud en faisant le lien sur l'ancien début.  
-		  * On  utilise le nombre d'éléments pour tester si la liste est vide.
+		  * STRATï¿½GIE : On crï¿½e un noeud en faisant le lien sur l'ancien dï¿½but.  
+		  * On  utilise le nombre d'ï¿½lï¿½ments pour tester si la liste est vide.
 		  * Si c'est le cas, il faut placer le pointeur de fin.  On place  la position 
-		  * courante sur le noeud qui vient d'être créé.  
-		  * On incrémente le nombre d'éléments dans tous les cas.
+		  * courante sur le noeud qui vient d'ï¿½tre crï¿½ï¿½.  
+		  * On incrï¿½mente le nombre d'ï¿½lï¿½ments dans tous les cas.
 		  */
 
-     	 // Création du noeud avec le lien sur l'ancien début.
+     	 // Crï¿½ation du noeud avec le lien sur l'ancien dï¿½but.
   	     debut = new Noeud(element,debut,null);
 
   	     // La liste est vide, on place le pointeur de fin.
   	     if (nbElements == 0)
 		     fin = debut;
 
-  	     // Sinon, il faut ajuste le précédent de l'ancien début.
+  	     // Sinon, il faut ajuste le prï¿½cï¿½dent de l'ancien dï¿½but.
   	     else
   	        debut.suivant.precedent = debut;
 
-  	     // On place la position courante sur le nouveau noeud en tête de liste.
+  	     // On place la position courante sur le nouveau noeud en tï¿½te de liste.
   	     positionCourante = debut;
 
-		 // Un élément de plus.
+		 // Un ï¿½lï¿½ment de plus.
 		 nbElements++;
 	 }
 
 	 /**
-	  * Insère l'élément reçu en fin de liste.
+	  * Insï¿½re l'ï¿½lï¿½ment reï¿½u en fin de liste.
 	  *
-	  * Antédécent : Aucun.
+	  * Antï¿½dï¿½cent : Aucun.
 	  *
-	  * Conséquent : nbElement = nbElement + 1 & position == fin &
+	  * Consï¿½quent : nbElement = nbElement + 1 & position == fin &
 	  *  liste.getElement() == element.
 	  *
-	  * @param element L'élément à insérer à la fin de  la liste.
+	  * @param element L'ï¿½lï¿½ment ï¿½ insï¿½rer ï¿½ la fin de  la liste.
 	  */
 	 public void insererFin(Object element){
 
 		 /*
-		  * STRATÉGIE : On utilise le nombre d'éléments pour tester si la liste est
-		  *  vide. Si c'est le cas, on utilise la méthode qui insère au début.
-		  * Sinon, on crée un nouveau noeud et on le lie à celui de fin.  On déplace
+		  * STRATï¿½GIE : On utilise le nombre d'ï¿½lï¿½ments pour tester si la liste est
+		  *  vide. Si c'est le cas, on utilise la mï¿½thode qui insï¿½re au dï¿½but.
+		  * Sinon, on crï¿½e un nouveau noeud et on le lie ï¿½ celui de fin.  On dï¿½place
 		  * ensuite le pointeur de fin et la position courante sur le nouveau noeud.
-		  * On incrémente le nombre d'éléments.
+		  * On incrï¿½mente le nombre d'ï¿½lï¿½ments.
 		  */
 
-		 // Si la liste est vide, on insère au début.
+		 // Si la liste est vide, on insï¿½re au dï¿½but.
 		 if(nbElements == 0)
 			 insererDebut(element);
 
-		 // Sinon on insère après le dernier.
+		 // Sinon on insï¿½re aprï¿½s le dernier.
 		 else{
 
-			    // Création du nouveau noeud lié après la fin avec chaînage sur
+			    // Crï¿½ation du nouveau noeud liï¿½ aprï¿½s la fin avec chaï¿½nage sur
 			    // l'ancienne fin
 			    fin.suivant = new Noeud(element,null,fin);
 
-			    // Déplace le pointeur de fin.
+			    // Dï¿½place le pointeur de fin.
 			    fin = fin.suivant;
 
-			    // Place la position courante à la fin.
+			    // Place la position courante ï¿½ la fin.
 			    positionCourante = fin;
 
-			    // Un élément de plus.
+			    // Un ï¿½lï¿½ment de plus.
 			    nbElements++;
 		 }
 	 }
 
 
 	 /**
-	  * Insère l'élément reçu après la position courante.
+	  * Insï¿½re l'ï¿½lï¿½ment reï¿½u aprï¿½s la position courante.
       *
-      * Antédécent : Aucun.
+      * Antï¿½dï¿½cent : Aucun.
       *
-	  * Conséquent : nbElement = nbElement + 1 & liste.getElement() == element.
+	  * Consï¿½quent : nbElement = nbElement + 1 & liste.getElement() == element.
 	  *
-	  * @param element L'Élément à insérer après la position courante.
+	  * @param element L'ï¿½lï¿½ment ï¿½ insï¿½rer aprï¿½s la position courante.
 	  *
 	  */
 	 public void insererApres(Object element){
 
 		 /*
-		  * STRATÉGIE : On utilise le nombre d'éléments pour tester si la liste est
-		  *  vide et on regarde si la position courante est à la fin. Si c'est le cas,
-		  *  on utilise la méthode qui insère à la fin.
-		  *  Sinon, on crée un nouveau noeud et on le lie au noeud pointé
+		  * STRATï¿½GIE : On utilise le nombre d'ï¿½lï¿½ments pour tester si la liste est
+		  *  vide et on regarde si la position courante est ï¿½ la fin. Si c'est le cas,
+		  *  on utilise la mï¿½thode qui insï¿½re ï¿½ la fin.
+		  *  Sinon, on crï¿½e un nouveau noeud et on le lie au noeud pointï¿½
 		  *  par la position courante.  Si c'est le dernier noeud, on il faut ajuster le
-		  *  pointeur de fin (on aurait pu penser à utiliser insererFin mais c'est plus lent)
-		  *  On déplace la position courante sur le nouveau noeud.
-		  *  On incrémente le nombre d'éléments.
+		  *  pointeur de fin (on aurait pu penser ï¿½ utiliser insererFin mais c'est plus lent)
+		  *  On dï¿½place la position courante sur le nouveau noeud.
+		  *  On incrï¿½mente le nombre d'ï¿½lï¿½ments.
 		  */
 
-		 // Si la liste est vide, ou que la position courante est à la fin,
-		 // on insère à la fin.
+		 // Si la liste est vide, ou que la position courante est ï¿½ la fin,
+		 // on insï¿½re ï¿½ la fin.
 		 if(nbElements == 0 || positionCourante == fin)
 			 insererFin(element);
 
 		 else{
 
-			 // Ajuste le précédent du suivant de la position courante.
+			 // Ajuste le prï¿½cï¿½dent du suivant de la position courante.
 			 positionCourante.suivant.precedent =
 					 new Noeud(element,positionCourante.suivant,positionCourante);
 
@@ -317,42 +317,42 @@ public class ListeDouble {
 		     // positionCourante.suivant = tmp;
 		     // positionCourante = tmp;
 
-		      //un élément de plus
+		      //un ï¿½lï¿½ment de plus
 		      nbElements++;
 		 }
 	 }
 
 	 /**
-	  * Insère l'élément reçu avant la position courante
+	  * Insï¿½re l'ï¿½lï¿½ment reï¿½u avant la position courante
 	  *
-      * Antédécent : Aucun.
+      * Antï¿½dï¿½cent : Aucun.
       *
-	  * Conséquent : nbElement = nbElement + 1 & liste.getElement() == element.
+	  * Consï¿½quent : nbElement = nbElement + 1 & liste.getElement() == element.
 	  *
-	  * @param element L'Élément à insérer dans la liste avant la position courante.
+	  * @param element L'ï¿½lï¿½ment ï¿½ insï¿½rer dans la liste avant la position courante.
 	  */
 	 public void insererAvant(Object element){
 
 		 /*
-		  * STRATÉGIE : On utilise le nombre d'éléments pour tester si la liste est
-		  *  vide. Si c'est le cas, on utilise la méthode qui insère au début mais
-		  * on n'incrémente pas le nombre d'éléments puisque insererDebut le fait.
+		  * STRATï¿½GIE : On utilise le nombre d'ï¿½lï¿½ments pour tester si la liste est
+		  *  vide. Si c'est le cas, on utilise la mï¿½thode qui insï¿½re au dï¿½but mais
+		  * on n'incrï¿½mente pas le nombre d'ï¿½lï¿½ments puisque insererDebut le fait.
 		  *
-		  * Sinon, c'est la même technique que pour l'insertion après sauf que le
-		  * chaînage se fait avant la position courante.  Là, il faut incrémémenter le
-		  * nombre d'Éléments.
+		  * Sinon, c'est la mï¿½me technique que pour l'insertion aprï¿½s sauf que le
+		  * chaï¿½nage se fait avant la position courante.  Lï¿½, il faut incrï¿½mï¿½menter le
+		  * nombre d'ï¿½lï¿½ments.
 		  *
 		  */
 
-		 //Si la liste est vide ou un seul élément, on insère au début.
+		 //Si la liste est vide ou un seul ï¿½lï¿½ment, on insï¿½re au dï¿½but.
 		 if(nbElements <= 1 || positionCourante == debut)
 			 insererDebut(element);
 
 		 		 
-		 //On effectue le chaînage avec le nouveau noeud, des deux côtés.
+		 //On effectue le chaï¿½nage avec le nouveau noeud, des deux cï¿½tï¿½s.
 		 else{
 
-              // Ex: avant l'ajout de D2 à la position courante.
+              // Ex: avant l'ajout de D2 ï¿½ la position courante.
 			 //               D1        D3       D5
 			 // debut->         ->        ->  null   
 			 //              null  <-        <-           <- fin
@@ -360,11 +360,11 @@ public class ListeDouble {
 			 //                             ||
 			 //                            pc
 
-			 /* On met le nouveau noeud directement au suivant du prédécent 
+			 /* On met le nouveau noeud directement au suivant du prï¿½dï¿½cent 
 			      (Cela coupe le lien suivant entre D1 et D3).
 			       
-			       À l'aide du constructeur de Noeud, D2.suivant == D3 et 
-		           D2.précédent == D1.		         
+			       ï¿½ l'aide du constructeur de Noeud, D2.suivant == D3 et 
+		           D2.prï¿½cï¿½dent == D1.		         
 		     */
 			 
 			 // On pourrait utiliser une variable temporaire aussi mais cest inutile.
@@ -372,14 +372,14 @@ public class ListeDouble {
 	            	 new Noeud(element, positionCourante, positionCourante.precedent);
 
 
-			 // On ajuste le précédent de D3 à D2.
+			 // On ajuste le prï¿½cï¿½dent de D3 ï¿½ D2.
 			 positionCourante.precedent =  positionCourante.precedent.suivant;
 			 
-			 // On déplace la position courante sur le nouveau noeud (D2).
+			 // On dï¿½place la position courante sur le nouveau noeud (D2).
 			 positionCourante = positionCourante.precedent.suivant ;
 
 			 
-             // après l'ajout de D2 à la position courante.
+             // aprï¿½s l'ajout de D2 ï¿½ la position courante.
 			 //               D1        D2       D3       D5
 			 // debut->         ->        ->        ->  null
 			 //              null  ->        <-        <-          <- fin 
@@ -391,39 +391,71 @@ public class ListeDouble {
 	 }
 
 
-	 //LES AUTRES MÉTHODES
+	 //LES AUTRES Mï¿½THODES
 	 /**
-	  * Retourne l'élément à la position courante
+	  * Retourne l'ï¿½lï¿½ment ï¿½ la position courante
 	  *
-	  * Antécédent : La liste ne doit pas être vide.
+	  * Antï¿½cï¿½dent : La liste ne doit pas ï¿½tre vide.
 	  *
-	  * Conséquent : Le contenu de la liste est inchangé et la position courante
-	  * reste inchangée.
+	  * Consï¿½quent : Le contenu de la liste est inchangï¿½ et la position courante
+	  * reste inchangï¿½e.
 	  *
 	  *  @throws JavaNullPointerException
- 	  * @return L'élément à la position courante
+ 	  * @return L'ï¿½lï¿½ment ï¿½ la position courante
 	  */
 	 public Object getElement(){
 
-		      /*STRATÉGIE : Retourne simplement l'élément du noeud à la
+		      /*STRATï¿½GIE : Retourne simplement l'ï¿½lï¿½ment du noeud ï¿½ la
 		       * position courante.
 		       */
 			 return positionCourante.element;
 	 }
 
 	 /**
-	  * Retourne le nombre d'éléments actuellement dans la liste.
+	  * Retourne le nombre d'ï¿½lï¿½ments actuellement dans la liste.
 	  *
-	  * Antécédent : aucun.
-	  * Conséquent : aucun.
+	  * Antï¿½cï¿½dent : aucun.
+	  * Consï¿½quent : aucun.
 	  *
-	  * @return Le nombre d'éléments de la liste.
+	  * @return Le nombre d'ï¿½lï¿½ments de la liste.
 	  */
 	 public int getNbElements(){
 
 		 return nbElements;
 	 }
 
-	 // La suppression de chaînage double vous est laissée en exercice.
+	 // La suppression de chaï¿½nage double vous est laissï¿½e en exercice.
 
+         public void supprimer(){
+          
+             // Si le PC est au debut, on supprime le PC en enlevant son lien avec
+             // le prochain noeud et on change la position au prochain noeud
+             if(positionCourante == debut){
+                 
+                positionCourante.suivant.precedent = null;           
+                positionCourante = positionCourante.suivant;
+                debut = positionCourante;
+                
+             }
+             // Si le PC est Ã  la fin, on remplace le noeud prÃ©cÃ©dant par le PC
+             // et on coupe le lien en changeat la fin et la position courante
+             else if(positionCourante == fin){
+                positionCourante.precedent.element = positionCourante.element;
+                positionCourante.precedent.suivant = null;
+                positionCourante = positionCourante.precedent;
+                fin = positionCourante;
+             }
+             else{
+             
+            // Pour tous les autres cas, on change le precedant et le suivant du PC
+            // pour qu'ils pointe sur chacun d'eux de facon Ã  ne plus pointer sur le 
+            // PC pour qu'il s'efface
+                  positionCourante.precedent.suivant = positionCourante.suivant;
+                 positionCourante.suivant.precedent = positionCourante.precedent;
+                 positionCourante = positionCourante.precedent;
+                 
+             }
+             
+             nbElements -- ;
+         }
 }
