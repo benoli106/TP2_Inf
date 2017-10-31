@@ -1,4 +1,5 @@
 
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.Vector;
 
@@ -145,24 +146,41 @@ public class Clinique {
         return true;
 
     }
-    
+
     // Méthode qui reçoit un patient et reoturne le premier rendez-vous
-    // disponible pour ce patien
+    // disponible pour ce patient   
     public RendezVous rendezVousPatient(Patient patient) {
-        
-        LinkedList<PlageHoraire> tmp;
-        
-        ListeDouble plageHorraires = calendrier.getPlageHorraires();
-        
-        
-        
-        for(int i = 0; i < plageHorraires.size(); i++)
+
+        LinkedList<Long> tmp = null;
+
+        ListeDouble plageHoraires = calendrier.getListePlageHoraire();
+
+        Date currentDate = new Date();
+
+        Docteur docteurDisponible = null;
+
+        // Boucler dans tous les docteurs
+        for (int i = 0; i < docteurs.size(); i++) {
+
+            // On remet le curseur de la plage horaire à 0
+            plageHoraires.setPosDebut();
             
-            plageHorraires(1)
-            
-        
-        
-        
+            // Boucler dans tous les plage horaires 
+            for (int j = 0; j < plageHoraires.getNbElements(); j++) {
+
+                PlageHoraire tmp2 = (PlageHoraire) (plageHoraires.getElement());
+                
+                // Sortir la plage horraire de la journée
+                if (tmp2.getDate() == currentDate.getDate()) {
+                
+                }
+                
+                plageHoraires.setPosSuivant();
+
+            }
+
+        }
+
     }
 
 }

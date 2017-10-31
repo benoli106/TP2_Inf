@@ -50,6 +50,7 @@ public class RendezVous {
     public Infirmier getInfirmier() {
         return infirmier;
     }
+    
 
     // **********************MUTATEURS******************************************
     // Permet de modifier le patient

@@ -35,9 +35,16 @@ public class PlageHoraire {
     }
 
     // *********************ACCESSEURS******************************************
-    // Permet de retourner la date et l'heure
-    public Date getDateHeure() {
-        return this.dateHeure;
+    // Permet de retourner la date 
+    public int getDate() {
+        return dateHeure.getDay();
+
+    }
+
+    // Permet de retourner la date 
+    public long getHeure() {
+        return dateHeure.getTime();
+
     }
 
     // Permet de retourner la liste des rendez-vous
