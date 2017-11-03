@@ -84,7 +84,7 @@ public class Identification {
     public boolean equals(Identification identification) {
         
         // Comparer les adressses de référence
-        if (this == Identification) {
+        if (this == identification) {
             
             return true;
             

@@ -46,6 +46,10 @@ public class PlageHoraire {
         return dateHeure.getTime();
 
     }
+    
+    public Date getDateHeure(){
+        return dateHeure;
+    }
 
     // Permet de retourner la liste des rendez-vous
     public ArrayList<RendezVous> getListeRendezVous() {
