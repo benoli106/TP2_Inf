@@ -17,6 +17,8 @@ public class Calendrier {
 
     // Constructeur ... qui permet de créer un nouveau calendrier
     public Calendrier() {
+        
+        listePlageHoraire = new ListeDouble();
 
     }
 
@@ -34,7 +36,7 @@ public class Calendrier {
             for (int i = 0; i < this.listePlageHoraire.getNbElements() - 1; i++) {
 
                 PlageHoraire current = (PlageHoraire) listePlageHoraire.getElement();
-
+                                
                 if(current.getDateHeure() == dateHeure){
                     current.addRendezVous(rdvAjouter);
                 }
