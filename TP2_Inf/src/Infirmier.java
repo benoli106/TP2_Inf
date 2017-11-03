@@ -92,7 +92,7 @@ public class Infirmier {
     public boolean equals(Infirmier infirmier) {
 
         // Comparer les adressses de référence
-        if (this == Infirmier) {
+        if (this == infirmier) {
 
             return true;
 

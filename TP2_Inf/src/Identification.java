@@ -32,7 +32,7 @@ public class Identification {
 
     // Constructeur par copie d'attributs, permet de copier les attributs
     // passés en paramètre
-    public Identification(String nom, String Prenom) {
+    public Identification(String nom, String prenom) {
 
         // Le nom de l'objet va être identique au nom passé en paramètre
         setNom(nom);
@@ -84,7 +84,7 @@ public class Identification {
     public boolean equals(Identification identification) {
         
         // Comparer les adressses de référence
-        if (this == Identification) {
+        if (this == identification) {
             
             return true;
             

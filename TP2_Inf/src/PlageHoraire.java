@@ -34,6 +34,9 @@ public class PlageHoraire {
 
     }
 
+    public PlageHoraire() {
+    }
+
     // *********************ACCESSEURS******************************************
     // Permet de retourner la date 
     public int getDate() {
@@ -47,6 +50,12 @@ public class PlageHoraire {
 
     }
 
+    // Permet de retourner la date et l'heure
+    public Date getDateHeure() {
+        return dateHeure;
+
+    }
+
     // Permet de retourner la liste des rendez-vous
     public ArrayList<RendezVous> getListeRendezVous() {
         return this.listeRendezVous;
@@ -54,7 +63,7 @@ public class PlageHoraire {
 
     // **********************MUTATEURS******************************************
     // Permet de modifier la date et l'heure de la PlageHoraire
-    public void setDate(Date dateHeure) {
+    public void setDateHeure(Date dateHeure) {
 
         // On change la date et l'heure par celle recu en paramètre
         this.dateHeure = dateHeure;
@@ -66,6 +75,7 @@ public class PlageHoraire {
         // On ajoute un rendez vous à la liste de rendez-vous sur cette
         //plage horaire
         this.listeRendezVous.add(rdv);
+
     }
 
     // Retourne la date de la plage horaire et une description des rendez-vous
