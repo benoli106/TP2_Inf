@@ -172,6 +172,10 @@ public class Main {
                                     ph.addRendezVous(new RendezVous(patient,
                                             docteur, infirmier));
 
+                                    clinique.getCalendrier().
+                                            getListePlageHoraire().
+                                            insererApres(ph);
+
                                 } catch (Exception e) {
 
                                     System.out.println("La date et l'heure "
@@ -242,6 +246,105 @@ public class Main {
                         RendezVous rdv = clinique.getCalendrier().
                                 obtenirProchainRendezVousPatient(patient);
                         System.out.println(rdv.toString());
+                    }
+
+                    break;
+                }
+                // Passer à la prochaine plage horaire
+                case 9: {
+
+                    System.out.println(clinique.getCalendrier().
+                            obtenirProchainePlageHoraire());
+                    break;
+                }
+
+                // Afficher le calendrier complet
+                case 10: {
+
+                    System.out.println(clinique.getCalendrier());
+
+                    break;
+                }
+
+                // Afficher le calendrier complet d'un docteur
+                case 11: {
+                  int noChoix = choixDeDocteur(clinique, clavier);
+
+
+        Docteur docteur = clinique.getDocteur(noChoix);
+
+                    if (noChoix >= 0) {
+                        System.out.println(clinique.getCalendrier().
+                                obtenirCalendrierDocteur(docteur));
+
+                    }
+
+                    break;
+                }
+
+                // Afficher le calendrier complet d'un infirmier
+                case 12: {
+                   
+                     int noChoix = choixDInfirmier(clinique, clavier);
+
+                    Infirmier infirmier = clinique.getInfirmier(noChoix);
+
+                    if (noChoix >= 0) {
+                        System.out.println(clinique.getCalendrier().
+                                obtenirCalendrierInfirmier(infirmier));
+
+                    }
+
+                    break;
+                }
+
+                // Annuler un rendez-vous
+                case 13: {
+                    
+                    int noChoix;
+
+                    Docteur docteur;
+                    Infirmier infirmier;
+                    Patient patient;
+                    Date date;
+
+                    noChoix = choixDeDocteur(clinique, clavier);
+                    docteur = clinique.getDocteur(noChoix);
+
+                    // Vérifier si l'utilisateur a sélectionner un docteur
+                    if (noChoix >= 0 && noChoix < clinique.getDocteurs().size()) {
+
+                        // Les Infirmiers
+                        noChoix = 0;
+                        noChoix = choixDInfirmier(clinique, clavier);
+                        infirmier = clinique.getInfirmier(noChoix);
+
+                        // Vérifier si l'utilisateur a sélectionner un infirmier
+                        if (noChoix >= 0
+                                && noChoix < clinique.getInfirmiers().size()) {
+
+                            noChoix = 0;
+                            noChoix = choixDePatient(clinique, clavier);
+                            patient = clinique.getPatient(noChoix);
+
+                            if (noChoix >= 0
+                                    && noChoix < clinique.getPatients().size()) {
+
+                                try {
+
+                                    // Annuler le rdv
+                                    clinique.getCalendrier().annulerRendezVous(new RendezVous(patient,
+                                            docteur, infirmier));
+                                       System.out.println("Le rendez-vous est supprimer");
+
+                                } catch (Exception e) {
+
+                                    System.out.println("Le rendez-vous n'existe pas");
+                                }
+
+                            }
+                        }
+
                     }
 
                     break;

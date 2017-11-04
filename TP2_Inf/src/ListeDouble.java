@@ -430,11 +430,11 @@ public class ListeDouble {
           
              // Si le PC est au debut, on supprime le PC en enlevant son lien avec
              // le prochain noeud et on change la position au prochain noeud
-             if(positionCourante == debut){
+             if(nbElements == 1){
                  
-                positionCourante.suivant.precedent = null;           
-                positionCourante = positionCourante.suivant;
-                debut = positionCourante;
+                positionCourante = null;
+                debut = null;
+                fin = null;
                 
              }
              // Si le PC est à la fin, on remplace le noeud précédant par le PC

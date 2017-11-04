@@ -75,8 +75,9 @@ public class RendezVous {
 
         // On fait appel au toString du patient,docteur et de l'infirmier 
         // qui étaient définis auparavant
-        return (patient.toString() + " " + docteur.toString() + " "
-                + infirmier.toString());
+        return (" Rendez Vous :"  + "\n Patient : " + patient.toString() + 
+                "\n Docteur : " + docteur.toString() + "\n Infirmier : "
+                + infirmier.toString()) + "\n";
 
     }
 
@@ -93,7 +94,7 @@ public class RendezVous {
         // Comparer les attributs des objets
         if (rendezVous.getDocteur().equals(docteur)
                 && rendezVous.getInfirmier().equals(infirmier)
-                && rendezVous.getDocteur().equals(patient)) {
+                && rendezVous.getPatient().equals(patient)) {
 
             return true;
 

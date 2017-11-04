@@ -49,10 +49,6 @@ public class PlageHoraire {
         return dateHeure.getTime();
 
     }
-    
-    public Date getDateHeure(){
-        return dateHeure;
-    }
 
     // Permet de retourner la date et l'heure
     public Date getDateHeure() {
@@ -88,12 +84,14 @@ public class PlageHoraire {
 
         // On initialise un String de retour avec la date et l'heure
         String retour = "Date : " + this.dateHeure
-                + "\n" + "Liste des Rendez-vous : ";
+                + "\n" + "Liste des Rendez-vous : " + "\n";
 
         // Pour chaque rendez vous dans la liste, on appel son toString()
         // de facon à lister tous les rendez vous dans le string de retour
+   
         for (RendezVous rdv : this.listeRendezVous) {
             retour += rdv.toString() + "\n";
+     
         }
 
         return (retour);

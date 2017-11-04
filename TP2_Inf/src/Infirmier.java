@@ -84,7 +84,7 @@ public class Infirmier {
     // Retourne la concaténation du nom et du prénom.
     public String toString() {
 
-        return (identification.toString() + " " + disponibilite);
+        return (identification.toString());
  
     }
 

@@ -15,9 +15,9 @@ public class Calendrier {
     // Liste de Plage Horaire
     private ListeDouble listePlageHoraire;
 
-    // Constructeur ... qui permet de créer un nouveau calendrier
+    // Constructeur par defaut qui permet de créer un nouveau calendrier
     public Calendrier() {
-        
+
         listePlageHoraire = new ListeDouble();
 
     }
@@ -27,23 +27,34 @@ public class Calendrier {
         return listePlageHoraire;
     }
 
-    //
+    // Permet d'ajouter un rendez vous à une plage horaire avec la date
+    // Passer en argument
     public void ajouterRendezVous(RendezVous rdvAjouter, Date dateHeure) {
 
         if (isValid(dateHeure)) {
             this.listePlageHoraire.setPosDebut();
 
-            for (int i = 0; i < this.listePlageHoraire.getNbElements() - 1; i++) {
+            if (this.listePlageHoraire.getNbElements() == 0) {
+                
+                PlageHoraire ph = new PlageHoraire(dateHeure);
+                ph.addRendezVous(rdvAjouter);
+                 this.getListePlageHoraire().insererDebut(ph);
+               
+                
+            } else {
+                for (int i = 0; i < this.listePlageHoraire.getNbElements(); i++) {
 
-                PlageHoraire current = (PlageHoraire) listePlageHoraire.getElement();
-                                
-                if(current.getDateHeure() == dateHeure){
-                    current.addRendezVous(rdvAjouter);
+                    PlageHoraire current = (PlageHoraire) listePlageHoraire.getElement();
+
+                    if (current.getDateHeure() == dateHeure) {
+                        current.addRendezVous(rdvAjouter);
+                    }
+
+                    this.listePlageHoraire.setPosSuivant();
+
                 }
-
-                this.listePlageHoraire.setPosSuivant();
-
             }
+
         }
     }
 
@@ -68,14 +79,10 @@ public class Calendrier {
          */
         this.listePlageHoraire.setPosDebut();
 
-        for (int i = 0; i < this.listePlageHoraire.getNbElements() - 1; i++) {
+        for (int i = 0; i < this.listePlageHoraire.getNbElements(); i++) {
 
             PlageHoraire current = (PlageHoraire) listePlageHoraire.getElement();
-            retour += ("\n" + current.getDateHeure());
-
-            for (RendezVous rdv : current.getListeRendezVous()) {
-                retour += rdv.toString() + "\n";
-            }
+            retour += ("\n" + current.toString());
 
             this.listePlageHoraire.setPosSuivant();
 
@@ -95,7 +102,7 @@ public class Calendrier {
         this.listePlageHoraire.setPosDebut();
 
         // On itère dans la liste de plages
-        for (int i = 0; i < this.listePlageHoraire.getNbElements() - 1; i++) {
+        for (int i = 0; i < this.listePlageHoraire.getNbElements(); i++) {
 
             // On instancie un objet pour meilleur visibiliter
             PlageHoraire current = (PlageHoraire) listePlageHoraire.getElement();
@@ -127,7 +134,7 @@ public class Calendrier {
         this.listePlageHoraire.setPosDebut();
 
         // On itère dans la liste de plages
-        for (int i = 0; i < this.listePlageHoraire.getNbElements() - 1; i++) {
+        for (int i = 0; i < this.listePlageHoraire.getNbElements(); i++) {
 
             // On instancie un objet pour meilleur visibiliter
             PlageHoraire current = (PlageHoraire) listePlageHoraire.getElement();
@@ -159,7 +166,7 @@ public class Calendrier {
         this.listePlageHoraire.setPosDebut();
 
         // On itère dans la liste de plages
-        for (int i = 0; i < this.listePlageHoraire.getNbElements() - 1; i++) {
+        for (int i = 0; i < this.listePlageHoraire.getNbElements(); i++) {
 
             // On instancie un objet pour meilleur visibiliter
             PlageHoraire current = (PlageHoraire) listePlageHoraire.getElement();
@@ -199,7 +206,7 @@ public class Calendrier {
         this.listePlageHoraire.setPosDebut();
 
         // On itère dans la liste de plages
-        for (int i = 0; i < this.listePlageHoraire.getNbElements() - 1; i++) {
+        for (int i = 0; i < this.listePlageHoraire.getNbElements(); i++) {
 
             // On instancie un objet pour meilleur visibiliter
             PlageHoraire current = (PlageHoraire) listePlageHoraire.getElement();
@@ -207,7 +214,7 @@ public class Calendrier {
             // On recherche le rendez-vous avec un docteur qui correspond
             // au docteur donner en argument
             for (RendezVous rdv : current.getListeRendezVous()) {
-
+                rdv = rdv;
                 // Si le rendezvous current est égal au rendez-vous recu en
                 // paramètre, on l'annule, donc supprime le rdv.
                 if (rdv.equals(rdvAnuller)) {
@@ -240,7 +247,7 @@ public class Calendrier {
         this.listePlageHoraire.setPosDebut();
 
         // On itère dans la liste de plages
-        for (int i = 0; i < this.listePlageHoraire.getNbElements() - 1; i++) {
+        for (int i = 0; i < this.listePlageHoraire.getNbElements(); i++) {
 
             // On instancie un objet pour meilleur visibiliter
             PlageHoraire current = (PlageHoraire) listePlageHoraire.getElement();
@@ -271,7 +278,7 @@ public class Calendrier {
         this.listePlageHoraire.setPosDebut();
 
         // On itère dans la liste de plages
-        for (int i = 0; i < this.listePlageHoraire.getNbElements() - 1; i++) {
+        for (int i = 0; i < this.listePlageHoraire.getNbElements(); i++) {
 
             // On instancie un objet pour meilleur visibiliter
             PlageHoraire current = (PlageHoraire) listePlageHoraire.getElement();
@@ -282,8 +289,8 @@ public class Calendrier {
 
                 // On ajoute le rendez vous au calendrier si le docteur correspond
                 if (rdv.getInfirmier().equals(infirmier)) {
-                   retour.ajouterRendezVous(rdv, current.getDateHeure());
-               }
+                    retour.ajouterRendezVous(rdv, current.getDateHeure());
+                }
             }
 
             // Si on ne trouve pas le patient on continue la recherche
@@ -302,11 +309,11 @@ public class Calendrier {
 
         // On regarde si l'heure du rdv respect la condition de après 8h et avant
         // 20h
-        if (Hours < 8 && Hours > 20) {
+        if (Hours > 8 && Hours < 20) {
 
             // On regarde si les minutes du rdv respecte l'intervalle de 15
             // minutes pour les rdv.
-            switch (Minutes / 4) {
+            switch (Minutes / 15) {
                 case 0:
                     return true;
                 case 1:
