@@ -421,7 +421,7 @@ public class ListeDouble {
 	  */
 	 public int getNbElements(){
 
-		 return nbElements;
+        		 return nbElements;
 	 }
 
 	 // La suppression de cha�nage double vous est laiss�e en exercice.

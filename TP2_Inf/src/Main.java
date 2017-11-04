@@ -46,8 +46,13 @@ public class Main {
         //clinique = UtilitaireFichier.obtenirClinique(NOM_FICHIER_BD);
         // Si on ne trouve pas le fichier de la clinique
         if (clinique == null) {
-
+            
+            // Creer une plage d'horaire par défaut
             clinique = new Clinique();
+            PlageHoraire ph = new PlageHoraire(new Date());
+
+            clinique.getCalendrier().
+                    getListePlageHoraire().insererDebut(ph);
 
         }
         // Afficher le message de début
@@ -268,10 +273,9 @@ public class Main {
 
                 // Afficher le calendrier complet d'un docteur
                 case 11: {
-                  int noChoix = choixDeDocteur(clinique, clavier);
+                    int noChoix = choixDeDocteur(clinique, clavier);
 
-
-        Docteur docteur = clinique.getDocteur(noChoix);
+                    Docteur docteur = clinique.getDocteur(noChoix);
 
                     if (noChoix >= 0) {
                         System.out.println(clinique.getCalendrier().
@@ -284,8 +288,8 @@ public class Main {
 
                 // Afficher le calendrier complet d'un infirmier
                 case 12: {
-                   
-                     int noChoix = choixDInfirmier(clinique, clavier);
+
+                    int noChoix = choixDInfirmier(clinique, clavier);
 
                     Infirmier infirmier = clinique.getInfirmier(noChoix);
 
@@ -300,7 +304,7 @@ public class Main {
 
                 // Annuler un rendez-vous
                 case 13: {
-                    
+
                     int noChoix;
 
                     Docteur docteur;
@@ -335,7 +339,7 @@ public class Main {
                                     // Annuler le rdv
                                     clinique.getCalendrier().annulerRendezVous(new RendezVous(patient,
                                             docteur, infirmier));
-                                       System.out.println("Le rendez-vous est supprimer");
+                                    System.out.println("Le rendez-vous est supprimer");
 
                                 } catch (Exception e) {
 

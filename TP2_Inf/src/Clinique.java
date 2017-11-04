@@ -9,7 +9,7 @@ import java.util.Vector;
  * docteurs de la clinique, une liste contenant tous les infirmiers de la
  * clinique et une liste de tous les patients de la clinique
  *
- * @author Long Tran & Benjamin Fontaine
+     * @author Long Tran & Benjamin Fontaine
  * @since (copyright) LTran BFont - A2017
  * @version (copyright 2017)
  */
@@ -27,16 +27,15 @@ public class Clinique {
 
     // Liste de tous les patients de la clinique
     private LinkedList<Patient> patients;
-    
+
     // *********************CONSTRUCTEURS***************************************
-    
     public Clinique() {
-        
+
         calendrier = new Calendrier();
         docteurs = new Vector();
         infirmiers = new LinkedList();
         patients = new LinkedList();
-        
+
     }
 
     // *********************ACCESSEURS******************************************
@@ -97,18 +96,15 @@ public class Clinique {
          * false si le docteur existe déjà dans la liste sinon ça retourne true
          * et va l'ajouter à la liste des docteurs de la clinique        
          */
-     
-            for (int i = 0; i < docteurs.size(); i++) {
+        for (int i = 0; i < docteurs.size(); i++) {
 
-                // Si le docteur existe déjà dans la liste 
-                if (docteurs.get(i).equals(docteur)) {
+            // Si le docteur existe déjà dans la liste 
+            if (docteurs.get(i).equals(docteur)) {
 
-                    return false;
+                return false;
 
-                }
             }
-
-        
+        }
 
         // Si le docteur n'est pas encore dans la liste des docteurs de la 
         // clinique
@@ -127,18 +123,15 @@ public class Clinique {
          * false si l'infirmier existe déjà dans la liste sinon ça retourne true
          * et va l'ajouter à la liste des infirmiers de la clinique        
          */
+        for (int i = 0; i < infirmiers.size(); i++) {
 
-            for (int i = 0; i < infirmiers.size(); i++) {
+            // Si l'infirmier existe déjà dans la liste 
+            if (infirmiers.get(i).equals(infirmier)) {
 
-                // Si l'infirmier existe déjà dans la liste 
-                if (infirmiers.get(i).equals(infirmier)) {
+                return false;
 
-                    return false;
-
-                }
             }
-
-        
+        }
 
         // Si l'infirmier n'est pas encore dans la liste des infirmiers de la 
         // clinique
@@ -157,18 +150,16 @@ public class Clinique {
          * false si le patient existe déjà dans la liste sinon ça retourne true
          * et va l'ajouter à la liste des patients de la clinique        
          */
-      
-            for (int i = 0; i < patients.size(); i++) {
+        for (int i = 0; i < patients.size(); i++) {
 
-                // Si le patient existe déjà dans la liste 
-                if (patients.get(i).equals(patient)) {
+            // Si le patient existe déjà dans la liste 
+            if (patients.get(i).equals(patient)) {
 
-                    return false;
-
-                }
+                return false;
 
             }
-        
+
+        }
 
         // Si le patient n'est pas encore dans la liste des patients de la 
         // clinique
@@ -204,7 +195,7 @@ public class Clinique {
         plageHoraires.setPosDebut();
 
         /* STRATÉGIE : Boucler tous les plages horaires , ensuite dans une plage
-         * on boucle les docteurs et ensuite dans un docteur, un boucle 
+         * on boucle les docteurs et ensuite dans un docteur, o n boucle 
          * les rendez vous pour s'assurer que le docteur n'a pas déjà un rdv,
          * façcon similaire pour les infirmiers
          * sinon on continue des boucler les docteurs et les plages horaires
@@ -214,25 +205,25 @@ public class Clinique {
         // Boucler dans tous les plage horaires jusqu'à temps qu'il trouve 
         // une plage horaire disponible
         for (int j = 0; j < plageHoraires.getNbElements()
-                || plageHoraireDispo != null; j++) {
+                || plageHoraireDispo == null; j++) {
 
             PlageHoraire tmpPlage
                     = (PlageHoraire) (plageHoraires.getElement());
-
-            // Sortir la plage horraire de la journée
-            if (tmpPlage.getDate() == currentDate.getDate()) {
+            int test = tmpPlage.getListeRendezVous().size();
+            if (tmpPlage.getListeRendezVous().size() > 0) {
 
                 // Boucler dans tous les docteurs jusqu'à temps qu'il trouve un docteur
                 // disponible
                 for (int i = 0; i < docteurs.size()
-                        || docteurDisponible != null; i++) {
+                        || docteurDisponible == null; i++) {
 
                     int k = 0;
 
                     // Un rdv temporaire
                     RendezVous tmpRdv = null;
 
-                    // Boucler tous les rendez vous de la plage horaire et
+                    // Boucler tous les rendez vous de la plage horaire et 
+                    // boucler à travers les docteurs 
                     // tant que le docteur ne se retrouve pas déjà 
                     // dans un rendez vous
                     do {
@@ -242,7 +233,7 @@ public class Clinique {
 
                         k++;
                     } while (k < tmpPlage.getListeRendezVous().size()
-                            || tmpRdv.getDocteur() != docteurs.elementAt(i));
+                            || tmpRdv.getDocteur() != docteurs.get(i));
 
                     // Si on a parcouru tous les rendez vous et que le docteur
                     // n'était pas dans un des rendez vous,
@@ -251,7 +242,7 @@ public class Clinique {
                         // Boucler dans les infirmiers pour trouver un
                         // infirmier de disponible
                         for (int l = 0; l < infirmiers.size()
-                                || infirmierDispo != null; i++) {
+                                || infirmierDispo == null; i++) {
 
                             int ii = 0;
 
@@ -260,7 +251,8 @@ public class Clinique {
                             do {
 
                                 tmpRdv
-                                        = (RendezVous) tmpPlage.getListeRendezVous().get(ii);
+                                        = (RendezVous) tmpPlage
+                                                .getListeRendezVous().get(ii);
 
                                 ii++;
 
@@ -273,28 +265,39 @@ public class Clinique {
 
                                 infirmierDispo = infirmiers.get(ii);
                                 // sauvegarder le docteur pour créer un rendez vous
-                                docteurDisponible = docteurs.elementAt(i);
+                                docteurDisponible = docteurs.get(i);
 
                                 plageHoraireDispo = tmpPlage;
 
-                                // Créer un nouveau rendez vous avec un docteur,infirmier et patient
+                                // Créer un nouveau rendez vous 
+                                // avec un docteur,infirmier et patient
                                 rdvDispo
                                         = new RendezVous(patient,
-                                                docteurDisponible, infirmierDispo);
+                                                docteurDisponible,
+                                                infirmierDispo);
 
                             }
 
                         }
 
                     }
-
                 }
 
                 plageHoraires.setPosSuivant();
+            } else {
+                // Si il n'y a aucun rendez vous à la plage d'horaire, on va 
+                // prendre le premier docteur et infirmier
+                docteurDisponible = docteurs.firstElement();
+                infirmierDispo = infirmiers.getFirst();
+                plageHoraireDispo = tmpPlage;
+
+                rdvDispo = new RendezVous(patient, docteurDisponible, infirmierDispo);
+                plageHoraireDispo.addRendezVous(rdvDispo);
 
             }
 
         }
+
         return rdvDispo;
 
     }
